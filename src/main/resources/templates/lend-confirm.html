@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>確認画面</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    button {
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+<h1>確認画面</h1>
+<h2>下記で会っていますか？</h2>
+
+<!-- 貸出リスト表示 -->
+  <table>
+    <thead>
+    <tr>
+      <th>図書番号</th>
+      <th>社員番号</th>
+      <th>貸出日時</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="lend : ${lend}">
+      <!-- 図書番号 -->
+      <td th:text="${lend.bookNo.bookNo}">
+
+      </td>
+      <!-- 社員番号 -->
+      <td th:text="${lend.staffNo.staffNo}">
+
+      </td>
+      <!-- 貸出日時 -->
+      <td th:text="${#temporals.format(lend.lendTime, 'yyyy-MM-dd HH:mm:ss')}">
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- 貸出と戻るボタン -->
+  <div style="margin-top: 20px;">
+    <button type="submit" onclick="location.href='/confirm'">決定</button>
+    <button type="button" onclick="location.href='/'">戻る</button>
+  </div>
+</body>
+</html>

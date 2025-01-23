@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>名前選択1</title>
+</head>
+<body>
+<h1>名前選択1</h1>
+<form action="/staff/search" method="post">
+  <fieldset>
+    <legend>名前の先頭文字は何行ですか？</legend>
+    <label>
+      <input type="radio" name="initial" value="あ" onchange="this.form.submit()"> あ行
+    </label>
+    <label>
+      <input type="radio" name="initial" value="か" onchange="this.form.submit()"> か行
+    </label>
+    <label>
+      <input type="radio" name="initial" value="さ" onchange="this.form.submit()"> さ行
+    </label>
+    <label>
+      <input type="radio" name="initial" value="た" onchange="this.form.submit()"> た行
+    </label>
+    <label>
+      <input type="radio" name="initial" value="な" onchange="this.form.submit()"> な行
+    </label><br>
+    <label>
+      <input type="radio" name="initial" value="は" onchange="this.form.submit()"> は行
+    </label>
+    <label>
+      <input type="radio" name="initial" value="ま" onchange="this.form.submit()"> ま行
+    </label>
+    <label>
+      <input type="radio" name="initial" value="や" onchange="this.form.submit()"> や行
+    </label>
+    <label>
+      <input type="radio" name="initial" value="ら" onchange="this.form.submit()"> ら行
+    </label>
+    <label>
+      <input type="radio" name="initial" value="わ" onchange="this.form.submit()"> わ行
+    </label>
+  </fieldset>
+</form>
+<button onclick = "location.href='/'">戻る</button>
+</body>
+</html>

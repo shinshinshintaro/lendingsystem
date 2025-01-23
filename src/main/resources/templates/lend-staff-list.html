@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>名前選択2</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    table {
+        width: 50%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+<h1>名前選択2</h1>
+
+<!-- フォームを追加 -->
+<form action="/staff/select" method="post">
+  <table>
+    <thead>
+    <tr>
+      <th>選択</th>
+      <th>番号</th>
+      <th>名前</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- スタッフリストをループしてデータを表示 -->
+    <tr th:each="staff : ${staff}">
+      <!-- 選択 -->
+      <td>
+        <input type="radio" name="staffNo" th:value="${staff.staffNo}">
+      </td>
+      <!-- 番号 -->
+      <td th:text="${staff.staffNo}"></td>
+      <!-- 名前 -->
+      <td th:text="${staff.name}"></td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- 送信ボタン -->
+  <button type="submit">選択して送信</button>
+</form>
+
+<!-- 戻るボタン -->
+<button onclick="location.href='/'">戻る</button>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+2025-01-23 14:09:48.718295+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: テーブル "LENDING" が見つかりません
+Table "LENDING" not found; SQL statement:
+SELECT l FROM Lending l WHERE l.bookNo = :bookNo AND l.status = true [42102-232]
+2025-01-23 14:12:03.737436+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "SELECT l FROM Lend l WHERE l.bookNo = [*]:bookNo AND l.status = true"; 期待されるステートメント "ALL (, ANY (, SOME ("
+Syntax error in SQL statement "SELECT l FROM Lend l WHERE l.bookNo = [*]:bookNo AND l.status = true"; expected "ALL (, ANY (, SOME ("; SQL statement:
+SELECT l FROM Lend l WHERE l.bookNo = :bookNo AND l.status = true [42001-232]
+2025-01-23 14:12:23.081789+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "SELECT * FROM Lend l WHERE l.bookNo = [*]:bookNo AND l.status = true"; 期待されるステートメント "ALL (, ANY (, SOME ("
+Syntax error in SQL statement "SELECT * FROM Lend l WHERE l.bookNo = [*]:bookNo AND l.status = true"; expected "ALL (, ANY (, SOME ("; SQL statement:
+SELECT * FROM Lend l WHERE l.bookNo = :bookNo AND l.status = true [42001-232]

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本の結果</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .completed {
+        text-decoration: line-through;
+        color: gray;
+    }
+  </style>
+</head>
+<body>
+<h1>本の結果</h1>
+<table>
+  <thead>
+  <tr>
+    <th>図書番号</th>
+    <th>タイトル</th>
+    <th>詳細</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- 貸出リストをループしてデータを表示 -->
+  <tr th:each="book : ${book}">
+    <!-- 図書番号 -->
+    <td th:text="${book.bookNo}" ></td>
+    <!-- タイトル -->
+    <td th:text="${book.title}" ></td>
+    <!-- 詳細 -->
+    <td th:text="${book.description}" ></td>
+  </tr>
+  </tbody>
+</table>
+<h2>こちらでしょうか？違う場合は戻るボタンを押下</h2>
+
+<button onclick = "location.href='/firstName'">はいこの本です。</button>
+<button onclick = "location.href='/'">戻る</button>
+</body>
+</html>
