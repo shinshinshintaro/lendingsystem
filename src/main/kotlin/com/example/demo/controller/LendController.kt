@@ -69,11 +69,11 @@ class LendController(
     }
 
     // 貸出詳細取得
-    @GetMapping("/{id}")
+    @GetMapping("lend/{id}")
     fun getLendById(@PathVariable("id") id: Long): ModelAndView {
         val lend = lendRepository.findById(id).orElse(null)
         return if (lend != null) {
-            ModelAndView("lend-detail").apply {
+            ModelAndView("lend").apply {
                 addObject("lend", lend)
             }
         } else {
@@ -101,7 +101,7 @@ class LendController(
         lendDto.staffNo = staff.staffNo.toLong()
 
         val book = lendDto.bookNo?.let {
-            bookRepository.findById(it.toLong()).orElseThrow {
+            bookRepository.findById(it).orElseThrow {
                 InvalidInputException("Book not found for ID: ${lendDto.bookNo}")
             }
         }

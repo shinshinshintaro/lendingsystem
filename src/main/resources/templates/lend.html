@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>貸出リスト</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+    button {
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+<h1>貸出リスト</h1>
+
+<!-- 貸出と返却ボタン -->
+<div style="margin-bottom: 20px;">
+  <button onclick = "location.href='/'">戻る</button>
+</div>
+
+<!-- 貸出リスト表示 -->
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>図書番号</th>
+    <th>社員番号</th>
+    <th>貸出日時</th>
+    <th>状態</th>
+    <th>返却日時</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- 貸出リストをループしてデータを表示 -->
+  <tr th:each="lend : ${lend}">
+    <!-- ID -->
+    <td th:text="${lend.id}"></td>
+    <!-- 図書番号 -->
+    <td th:text="${lend.bookNo.bookNo}"></td>
+    <!-- 社員番号 -->
+    <td th:text="${lend.staffNo.staffNo}"></td>
+    <!-- 貸出日時 -->
+    <td th:text="${#temporals.format(lend.lendTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+    <!-- 状態 -->
+    <td th:text="${lend.status} ? '貸出中' : '本棚'"></td>
+    <!-- 返却日時 -->
+    <td th:text="${lend.returnTime != null ? #temporals.format(lend.returnTime, 'yyyy-MM-dd HH:mm:ss') : '-'}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
